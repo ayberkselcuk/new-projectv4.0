@@ -25,17 +25,16 @@ class QuestionsController < ApplicationController
   end
 
   def new
-  	@question = Question.new
+  @question = current_user.questions.build
   end
 
  def create
-    @question = Question.new(question_params) 
-
-    if @question.save
-      redirect_to @question
-    else
-      render :new
-    end
+   @post = current_user.posts.build(post_params)
+ if @post.save
+   redirect_to @post
+  else
+   render 'new'
+  end
  end
   
   def show
