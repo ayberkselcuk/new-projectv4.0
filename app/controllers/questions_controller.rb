@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# QuestionsController
 class QuestionsController < ApplicationController
   
   before_action :find_question, only: [:show, :edit, :update, :destroy]
@@ -25,13 +28,17 @@ class QuestionsController < ApplicationController
   end
 
   def new
-  @question = current_user.questions.build
+   if user_signed_in?
+     @question = current_user.questions.build
+   else
+     redirect_to new_user_session_path
+   end
   end
 
  def create
-   @post = current_user.posts.build(post_params)
- if @post.save
-   redirect_to @post
+   @question = current_user.questions.build(question_params)
+ if @question.save
+   redirect_to @question
   else
    render 'new'
   end
@@ -43,10 +50,10 @@ class QuestionsController < ApplicationController
  private
 
   def question_params
-  	params.require(:question).permit(:title, :content)
+    params.require(:question).permit(:title, :content)
   end
 
   def find_question
- 	 @question = Question.find(params[:id])
+ 	  @question = Question.find(params[:id])
   end
- end
+end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# question
-class Question < ApplicationRecord
+# answer
+class Answer < ApplicationRecord
   belongs_to :user
 end
