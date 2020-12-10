@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stackoverflow</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"></link>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+  <body>
+    <%= render 'shared/navbar' %>
+
+    <header class="main_header clearfix"></header>
+    <div id="logo"></div>
+     
+    <div id="buttons"></div>
+
+    <div class="wrapper"></div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+    <div class="wrapper"></div>
+    <%= yield %>
+  </body>
+  </head>
+</html>

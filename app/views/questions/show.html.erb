@@ -1,0 +1,21 @@
+<div id="question_content"></div>
+ 
+  <h1><%= @question.title %></h1>
+
+  <p><%= @question.content %></p>
+<div id="answers"></div>
+
+  <h2><%= @question.answers.count %></h2>
+  <%= render @question.answers %>
+
+  
+  <h3>Reply to thread</h3>
+
+  <%= render "answers/form" %>
+
+
+<%= link_to "Edit", edit_question_path(@question) %>
+
+<%= link_to "Delete", question_path(@question), method: :delete, data: { confirm: "Are you sure you want to do this ?" } %>
+
+<%= link_to "Home", root_path %>

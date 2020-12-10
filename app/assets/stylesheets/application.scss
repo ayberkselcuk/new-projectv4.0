@@ -15,7 +15,18 @@
  */
 body {
  font-family: 'Lato', sans-serif;
- background: #EDEFF0;
+ background: black;
+}
+
+.questionText{
+text-align: center ;
+color: red ; 
+}
+
+.bg-white {
+background: white ;
+text-align: center ;
+font-size: 30px ;
 }
  
 .wrapper {
@@ -59,7 +70,7 @@ body {
  }
 }
 #questions {
- background: white;
+ background: black;
  padding: 2em 5%;
  border-radius: .5em;
  .post {
